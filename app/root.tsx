@@ -8,6 +8,8 @@ import {
 } from 'remix';
 import type { MetaFunction } from 'remix';
 
+import Navigation from '~/components/Navigation';
+
 import styles from './tailwind.css';
 
 export const meta: MetaFunction = () => {
@@ -27,7 +29,8 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-brand-600 text-white">
+        <Navigation />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
