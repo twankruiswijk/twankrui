@@ -3,6 +3,7 @@ import { ButtonVariant } from '~/components/Button';
 import Newsletter from '~/components/Newsletter';
 import Button from '~/components/Button';
 import FeaturedList from '~/components/FeaturedList';
+import Card from '~/components/Card';
 
 import { heading, paragraph } from '~/styles/typography';
 
@@ -36,12 +37,12 @@ export default function Index() {
       <section className="py-20 md:py-32">
         <div className="container">
           <div className="grid gap-x-4 grid-cols-12 grid-rows-[min-content]">
-            <h1 className={`${heading} row-start-1 col-span-full`}>
+            <h1 className={`${heading} inset-1 col-span-full`}>
               &gt; I build things for the web
             </h1>
 
             <p
-              className={`${paragraph} mb-8 row-start-2 col-span-full lg:col-span-9 xl:col-span-7 2xl:col-span-6`}
+              className={`${paragraph} mb-8 col-span-full lg:col-span-9 xl:col-span-7 2xl:col-span-6`}
             >
               I am an independent creator who loves to help you build your next
               front-end. Besides writing code, I write about code, productivity,
@@ -72,6 +73,52 @@ export default function Index() {
           listTitle="Featured projects"
           projects={featuredProjects}
         />
+      </div>
+
+      <div className="container mb-20 md:mb-32">
+        <div className="grid gap-x-4 grid-cols-12 grid-rows-[min-content]">
+          <h1 className={`${heading} col-span-full`}>&gt; Where I write 🖊</h1>
+          <p
+            className={`${paragraph} mb-8 col-span-full lg:col-span-9 xl:col-span-7 2xl:col-span-6`}
+          >
+            Besides coding, I also love to provide value to people via writing.
+          </p>
+
+          <div className="mb-4 lg:mb-0 col-span-full lg:col-start-1 lg:col-span-4">
+            <Card
+              linkUrl="https://remote101.blog"
+              externalLink={true}
+              imageUrl="/writing/remote101.jpg"
+              title="Remote101.blog"
+              description="The blog about working remotely and productivity."
+            />
+          </div>
+          <div className="mb-4 lg:mb-0 col-span-full lg:col-span-4">
+            <Card
+              linkUrl="https://dev.to/twankrui"
+              externalLink={true}
+              imageUrl="/writing/devto.jpg"
+              title="Dev.to"
+              description="This is the place where I write about anything dev related."
+            />
+          </div>
+          <div className="mb-4 lg:mb-0 col-span-full lg:col-span-4">
+            <Card
+              linkUrl="https://www.indiehackers.com/Twan"
+              externalLink={true}
+              imageUrl="/writing/indiehackers.jpg"
+              title="Indie Hackers"
+              description="Writing posts and answering other indie hacker's questions."
+            />
+          </div>
+
+          <div className="md:flex md:justify-end md:items-center col-span-full mt-6 lg:mt-12">
+            <span className="mr-6 font-medium text-white/80 hidden md:block">
+              Want to read all my work?
+            </span>
+            <Button linkUrl="/blog" title="View more blogs" />
+          </div>
+        </div>
       </div>
     </main>
   );

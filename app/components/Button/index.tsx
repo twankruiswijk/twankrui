@@ -18,7 +18,7 @@ export default function Button({
   handleClick,
   variant,
 }: ButtonProps) {
-  const buttonStyles = `px-8 py-3 lg:px-12 border rounded-md font-semibold text-center shadow-primary ${
+  const buttonStyles = `block px-8 py-3 lg:px-12 border rounded-md font-semibold text-center shadow-primary ${
     variant === 'secondary' ? 'bg-[#137D44]' : null
   } transition-shadow hover:shadow-primaryHalf`;
 

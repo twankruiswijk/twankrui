@@ -7,7 +7,7 @@ export default function FeaturedListItem({
   linkUrl,
 }: Project) {
   const renderText = description.split('\n').map((str, i) => (
-    <p className="mb-6" key={i}>
+    <p className="mb-6 text-white/80" key={i}>
       {str}
     </p>
   ));
