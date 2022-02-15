@@ -17,11 +17,11 @@ export default function Footer() {
               Creator &amp; front-end developer, building things for the web.
             </p>
 
-            <div className="grid gap-x-4 grid-cols-[2rem_1fr] text-sm text-white/80 mb-6">
-              <span>Kvk</span>
+            <div className="grid gap-x-4 grid-cols-[2rem_1fr] text-sm mb-6">
+              <span className="text-white/80">Kvk</span>
               <span>84572922</span>
 
-              <span>BTW</span>
+              <span className="text-white/80">BTW</span>
               <span>NL003984327B90</span>
             </div>
 

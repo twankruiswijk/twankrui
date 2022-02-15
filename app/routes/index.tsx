@@ -34,16 +34,14 @@ const featuredProjects = [
 export default function Index() {
   return (
     <main>
-      <section className="py-20 md:py-32">
+      <section className="pt-20 md:pt-32 mb-8">
         <div className="container">
           <div className="grid gap-x-4 grid-cols-12 grid-rows-[min-content]">
             <h1 className={`${heading} inset-1 col-span-full`}>
               &gt; I build things for the web
             </h1>
 
-            <p
-              className={`${paragraph} mb-8 col-span-full lg:col-span-9 xl:col-span-7 2xl:col-span-6`}
-            >
+            <p className={`${paragraph} mb-8 col-span-full lg:col-span-8`}>
               I am an independent creator who loves to help you build your next
               front-end. Besides writing code, I write about code, productivity,
               and remote work.
@@ -66,7 +64,7 @@ export default function Index() {
         </div>
       </section>
 
-      <div className="container mb-24 md:mb-38">
+      <div id="projects" className="container pt-12 md:pt-32">
         <FeaturedList
           title="&gt; What I built ⚙"
           description="Over the past years, I’ve built a lot of awesome front-ends, from landing pages to a full-blown e-learning platform that included games for the student and complex class management interfaces for the teachers."
@@ -75,12 +73,10 @@ export default function Index() {
         />
       </div>
 
-      <div className="container mb-20 md:mb-32">
+      <div className="container pt-12 md:pt-32">
         <section className="grid gap-x-4 grid-cols-12 grid-rows-[min-content]">
           <h1 className={`${heading} col-span-full`}>&gt; Where I write 🖊</h1>
-          <p
-            className={`${paragraph} mb-8 col-span-full lg:col-span-9 xl:col-span-7 2xl:col-span-6`}
-          >
+          <p className={`${paragraph} mb-8 col-span-full lg:col-span-8`}>
             Besides coding, I also love to provide value to people via writing.
           </p>
 
@@ -121,7 +117,7 @@ export default function Index() {
         </section>
       </div>
 
-      <div className="container mb-20 md:mb-32">
+      <div id="about" className="container py-12 md:py-32">
         <section className="grid gap-x-4 grid-cols-12 grid-rows-[min-content]">
           <div className="col-span-full md:col-span-7">
             <h1 className={`${heading}`}>&gt; What I love ❤</h1>

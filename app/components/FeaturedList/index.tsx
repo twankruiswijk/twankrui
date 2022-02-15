@@ -35,7 +35,7 @@ export default function FeaturedList({
   return (
     <section className="relative">
       <div className="grid gap-x-4 grid-cols-12 grid-rows-[min-content]">
-        <div className="col-span-full lg:col-span-10 xl:col-span-8 2xl:col-span-7 px-4 md:px-8">
+        <div className="col-span-full lg:col-span-8 px-4 md:px-8">
           <h2 className={`${heading}`}>{title}</h2>
           <p className={`${paragraph}`}>{description}</p>
         </div>

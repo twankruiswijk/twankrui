@@ -15,10 +15,10 @@ export default function Navigation() {
               className="h-12 w-12"
             />
             <div className="flex flex-col ml-2.5">
-              <span className="text-lg font-semibold -mb-1 leading-nonew">
+              <span className="text-lg font-semibold -mb-0.5 leading-nonew">
                 Twankrui
               </span>
-              <span className="text-xs font-semibold opacity-50 leading-none">
+              <span className="text-xs font-medium opacity-50 leading-none">
                 t-arch
               </span>
             </div>
