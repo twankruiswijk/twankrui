@@ -9,6 +9,7 @@ import {
 import type { MetaFunction } from 'remix';
 
 import Navigation from '~/components/Navigation';
+import Footer from './components/Navigation/Footer';
 
 import styles from './tailwind.css';
 
@@ -32,6 +33,8 @@ export default function App() {
       <body className="bg-brand-600 text-white">
         <Navigation />
         <Outlet />
+        <Footer />
+
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}

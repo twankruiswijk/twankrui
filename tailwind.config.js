@@ -3,6 +3,14 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
   content: ['./app/**/*.{ts,tsx,jsx,js}'],
   theme: {
+    container: {
+      screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1140px',
+      },
+    },
     extend: {
       container: {
         center: true,

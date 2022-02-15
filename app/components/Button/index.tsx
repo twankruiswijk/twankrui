@@ -4,12 +4,18 @@ export enum ButtonVariant {
   secondary = 'secondary',
 }
 
+export enum ButtonSize {
+  sm = 'sm',
+}
+
 // TO-DO: Make either linkUrl or HandleClick required
 type ButtonProps = {
   title: string;
   variant?: ButtonVariant;
   linkUrl?: string;
   handleClick?: () => void;
+  isExternalLink?: boolean;
+  size?: ButtonSize;
 };
 
 export default function Button({
@@ -17,10 +23,26 @@ export default function Button({
   linkUrl,
   handleClick,
   variant,
+  isExternalLink,
+  size,
 }: ButtonProps) {
-  const buttonStyles = `block px-8 py-3 lg:px-12 border rounded-md font-semibold text-center shadow-primary ${
-    variant === 'secondary' ? 'bg-[#137D44]' : null
+  const buttonStyles = `block ${
+    size === ButtonSize.sm ? 'text-sm px-4 py-3' : 'px-8 py-3 lg:px-12'
+  } border rounded-md font-semibold text-center shadow-primary ${
+    variant === ButtonVariant.secondary ? 'bg-[#137D44]' : null
   } transition-shadow hover:shadow-primaryHalf`;
+
+  if (isExternalLink) {
+    return (
+      <a
+        href={linkUrl}
+        className={buttonStyles}
+        rel="noopener noreferrer nofollow"
+      >
+        {title}
+      </a>
+    );
+  }
 
   if (linkUrl) {
     return (

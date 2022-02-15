@@ -24,7 +24,7 @@ export default function Navigation() {
             </div>
           </Link>
 
-          <ul className="flex space-x-6 lg:space-x-8 hidden md:flex">
+          <ul className="flex items-center space-x-6 lg:space-x-8 hidden md:flex">
             <li>
               <PrimaryLink path="/#projects">Projects</PrimaryLink>
             </li>

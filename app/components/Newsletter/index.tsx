@@ -1,4 +1,8 @@
-export default function Newsletter() {
+type Props = {
+  column?: boolean;
+};
+
+export default function Newsletter({ column }: Props) {
   return (
     <div id="revue-embed w-full">
       <form
@@ -8,7 +12,7 @@ export default function Newsletter() {
         name="revue-form"
         target="_blank"
       >
-        <div className="flex flex-col md:flex-row">
+        <div className={`flex flex-col ${column ? '' : 'md:flex-row'} `}>
           <div className="revue-form-group">
             <label htmlFor="member_email" className="hidden">
               Email address
@@ -21,7 +25,11 @@ export default function Newsletter() {
               id="member_email"
             />
           </div>
-          <div className="revue-form-actions mt-4 md:mt-0 md:ml-2.5">
+          <div
+            className={`revue-form-actions mt-4 ${
+              column ? '' : 'md:mt-0 md:ml-2.5'
+            }`}
+          >
             <input
               type="submit"
               value="Join my newsletter"
@@ -31,7 +39,11 @@ export default function Newsletter() {
             />
           </div>
         </div>
-        <div className="revue-form-footer text-xs leading-relaxed opacity-25 mt-4 md:absolute">
+        <div
+          className={`revue-form-footer text-xs leading-relaxed opacity-25 mt-4 ${
+            column ? '' : 'md:absolute'
+          }`}
+        >
           By subscribing, you agree with Revue’s{' '}
           <a target="_blank" href="https://www.getrevue.co/terms">
             Terms of Service

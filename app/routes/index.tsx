@@ -66,7 +66,7 @@ export default function Index() {
         </div>
       </section>
 
-      <div className="container mb-20 md:mb-32">
+      <div className="container mb-24 md:mb-38">
         <FeaturedList
           title="&gt; What I built ⚙"
           description="Over the past years, I’ve built a lot of awesome front-ends, from landing pages to a full-blown e-learning platform that included games for the student and complex class management interfaces for the teachers."
@@ -76,7 +76,7 @@ export default function Index() {
       </div>
 
       <div className="container mb-20 md:mb-32">
-        <div className="grid gap-x-4 grid-cols-12 grid-rows-[min-content]">
+        <section className="grid gap-x-4 grid-cols-12 grid-rows-[min-content]">
           <h1 className={`${heading} col-span-full`}>&gt; Where I write 🖊</h1>
           <p
             className={`${paragraph} mb-8 col-span-full lg:col-span-9 xl:col-span-7 2xl:col-span-6`}
@@ -118,7 +118,47 @@ export default function Index() {
             </span>
             <Button linkUrl="/blog" title="View more blogs" />
           </div>
-        </div>
+        </section>
+      </div>
+
+      <div className="container mb-20 md:mb-32">
+        <section className="grid gap-x-4 grid-cols-12 grid-rows-[min-content]">
+          <div className="col-span-full md:col-span-7">
+            <h1 className={`${heading}`}>&gt; What I love ❤</h1>
+
+            <div className={`${paragraph} font-normal space-y-4`}>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                ut orci mauris. Maecenas leo eros, malesuada ac leo tristique,
+                condimentum cursus diam. Vestibulum ante ipsum primis in
+                faucibus orci luctus et ultrices posuere cubilia curae.
+              </p>
+
+              <p>
+                Suspendisse tincidunt enim at diam suscipit dignissim. Etiam
+                enim nisl, scelerisque quis iaculis sed, mattis quis nisi.
+                Pellentesque ornare quis sapien ut facilisis. Proin suscipit et
+                nisi in condimentum.
+              </p>
+
+              <p>
+                Curabitur egestas risus erat, sit amet porta mi mollis eu. Duis
+                iaculis augue in ipsum hendrerit vulputate. Morbi fringilla
+                neque eget accumsan facilisis. Morbi rutrum nisi at purus
+                volutpat, luctus dapibus est accumsan. Aliquam sed massa in
+                libero vehicula laoreet.
+              </p>
+            </div>
+          </div>
+
+          <div className="col-span-full md:col-start-9 md:col-span-4 -order-1 md:order-none mb-8 md:mb-0 md:mt-12">
+            <img
+              src="/twan.jpg"
+              alt="it's a me, Twan"
+              className="rounded-md shadow-primary"
+            />
+          </div>
+        </section>
       </div>
     </main>
   );
