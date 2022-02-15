@@ -24,12 +24,13 @@ module.exports = {
       },
       colors: {
         brand: {
+          400: '#1E2468',
           600: '#00031D',
         },
       },
       boxShadow: {
-        primary: '0 2px 10px 2px #1E2468',
-        primaryHalf: '0 1px 5px 2px #1E2468',
+        primary: '0 2px 7px 2px rgba(30, 36, 104, .85)',
+        primaryHalf: '0 1px 5px 2px rgba(30, 36, 104, 1)',
       },
     },
   },

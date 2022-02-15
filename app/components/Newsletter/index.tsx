@@ -35,7 +35,7 @@ export default function Newsletter({ column }: Props) {
               value="Join my newsletter"
               name="member[subscribe]"
               id="member_submit"
-              className="w-full px-8 py-3 lg:px-12 border rounded-md text-base font-semibold cursor-pointer shadow-primary hover:shadow-primaryHalf"
+              className="w-full px-8 py-3 lg:px-12 border rounded-md text-base font-semibold cursor-pointer shadow-primary transition-shadow hover:shadow-primaryHalf"
             />
           </div>
         </div>

@@ -47,7 +47,7 @@ export default function Index() {
               and remote work.
             </p>
 
-            <div className="flex flex-col-reverse md:flex-row md:items-center row-start-3 col-span-full">
+            <div className="flex flex-col-reverse md:flex-row md:items-center col-span-full">
               <div className="mt-4 md:mt-0">
                 <Newsletter />
               </div>
@@ -122,7 +122,7 @@ export default function Index() {
           <div className="col-span-full md:col-span-7">
             <h1 className={`${heading}`}>&gt; What I love ❤</h1>
 
-            <div className={`${paragraph} font-normal space-y-4`}>
+            <div className={`${paragraph} font-normal text-white/80 space-y-4`}>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                 ut orci mauris. Maecenas leo eros, malesuada ac leo tristique,

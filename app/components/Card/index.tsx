@@ -16,7 +16,7 @@ export default function Card({
   externalLink,
 }: Props) {
   const CardStyles =
-    'relative flex items-end h-60 rounded-md shadow-primary overflow-hidden';
+    'relative flex items-end h-60 rounded-md shadow-primary overflow-hidden transition-shadow hover:shadow-primaryHalf';
 
   const renderCardContents = (
     <article className="flex items-end h-full w-full">
