@@ -5,12 +5,14 @@ import { heading } from '~/styles/typography';
 
 import Blocks from '~/components/Blocks';
 
-export let loader: LoaderFunction = async ({ params }) => {
+export let loader: LoaderFunction = async ({ request, params }) => {
+  let url = new URL(request.url);
   const post = await getPost(params.slug!);
 
   return {
     info: post.pageInfo,
     blocks: post.blocks,
+    currentUrl: url,
   };
 };
 
@@ -85,7 +87,9 @@ export default function Post() {
               <span className="block">Share</span>
 
               <ShareButton
-                linkUrl="https://twitter.com"
+                linkUrl={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                  post.info.title + ' ' + post.currentUrl,
+                )}`}
                 icon={
                   <svg
                     role="img"
@@ -98,7 +102,13 @@ export default function Post() {
                 }
               />
               <ShareButton
-                linkUrl="https://linkedin.com"
+                linkUrl={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+                  post.currentUrl,
+                )}/&title=${encodeURIComponent(
+                  post.info.title,
+                )}&summary=${encodeURIComponent(
+                  post.info.summary,
+                )}&source=TwanKruiswijk`}
                 icon={
                   <svg
                     role="img"
@@ -112,7 +122,9 @@ export default function Post() {
               />
 
               <ShareButton
-                linkUrl="mailto:jaja"
+                linkUrl={`mailto:mailto:?subject=${encodeURIComponent(
+                  post.info.title,
+                )}&body=Article:${encodeURIComponent(post.currentUrl)}`}
                 icon={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
