@@ -7,6 +7,6 @@ export const subHeader =
 export const paragraph = 'text-base md:text-lg leading-relaxed font-medium';
 
 export const blogHeading =
-  'text-xl md:text-2xl md:leading-tight mt-8 md:mt-14 mb-2 font-semibold';
+  'text-xl md:text-2xl md:leading-tight mt-8 md:mt-12 mb-2 font-semibold';
 
 export const blogParagraph = 'text-base leading-relaxed font-normal mb-6';

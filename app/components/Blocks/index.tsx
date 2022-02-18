@@ -33,7 +33,7 @@ export default function Blocks({ blocks }: Props) {
         );
       case 'heading_3':
         return (
-          <h3 key={b.id} className={blogHeading}>
+          <h3 key={b.id} className={`${blogHeading} text-lg md:text-xl`}>
             {b.heading_3.text[0].text.content}
           </h3>
         );

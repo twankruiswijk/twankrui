@@ -71,6 +71,19 @@ export default function Post() {
     return null;
   }, [post.info]);
 
+  const renderWordsPerMinute = () => {
+    if (!post.info.words) {
+      return null;
+    }
+
+    const wordCount = post.info.words;
+    const wpm = 225;
+
+    const readingTime = Math.round(wordCount / wpm);
+
+    return `. ${readingTime} min read`;
+  };
+
   return (
     <article className="blog py-20 md:py-32">
       <div className="container">
@@ -85,7 +98,7 @@ export default function Post() {
               <time dateTime={post.info.date}>
                 {publishedDate.toLocaleDateString('en-US', dateOptions)}
               </time>{' '}
-              . 4 min read
+              {renderWordsPerMinute()}
             </span>
           </div>
         </div>

@@ -51,6 +51,7 @@ function normalizePostInfo(d: any) {
     canonical: d.properties.Canonical?.url,
     date: d.properties.Published_date?.date.start,
     source: d.properties.Source?.select?.name,
+    words: d.properties.Words?.number,
   };
 }
 
