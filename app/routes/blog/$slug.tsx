@@ -1,29 +1,79 @@
-import { ReactNode } from 'react';
+import { ReactNode, useCallback } from 'react';
+import { LoaderFunction, useLoaderData, MetaFunction } from 'remix';
+import { getPost } from '~/lib/notion';
 import { heading } from '~/styles/typography';
 
+import Blocks from '~/components/Blocks';
+
+export let loader: LoaderFunction = async ({ params }) => {
+  const post = await getPost(params.slug!);
+
+  return {
+    info: post.pageInfo,
+    blocks: post.blocks,
+  };
+};
+
+export const meta: MetaFunction = ({ data }) => {
+  return {
+    title: data.info.title,
+    description: data.info.summary,
+    'og:image': data.info.cover_image,
+  };
+};
+
 export default function Post() {
+  const post = useLoaderData();
+
+  const publishedDate = new Date(post.info.date);
+  const dateOptions: Intl.DateTimeFormatOptions = {
+    month: 'long',
+    year: 'numeric',
+    day: 'numeric',
+  };
+
+  const renderMeta = useCallback(() => {
+    if (post.info.source) {
+      return (
+        <>
+          <a
+            href={post.info.canonical}
+            className="font-semibold"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            {post.info.source}
+          </a>{' '}
+          on{' '}
+        </>
+      );
+    }
+
+    return null;
+  }, [post.info]);
+
   return (
-    <article className="py-20 md:py-32">
+    <article className="blog py-20 md:py-32">
       <div className="container">
         <div className="grid gap-x-4 grid-cols-12 mb-10 md:mb-16">
           <div className="col-span-full lg:col-span-8">
             <h1 className={`${heading} inset-1 col-span-full`}>
-              &gt; Don’t let your home office become a prison.
+              &gt; {post.info.title}
             </h1>
 
             <span className="font-normal">
-              Published on{' '}
-              <a href="https://remote101.blo g" className="font-semibold">
-                Remote101
-              </a>{' '}
-              on <time>January 31</time> . 4 min read
+              Published on {renderMeta()}{' '}
+              <time dateTime={post.info.date}>
+                {publishedDate.toLocaleDateString('en-US', dateOptions)}
+              </time>{' '}
+              . 4 min read
             </span>
           </div>
         </div>
 
         <div className="w-full h-80 md:h-[34rem] rounded-md overflow-hidden shadow-primary mb-10 md:mb-16">
           <img
-            src="https://images.unsplash.com/photo-1605565348518-bef3e7d6fed8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDJ8fGhvbWUlMjBvZmZpY2V8ZW58MHx8fHwxNjQzNjQzNDI0&ixlib=rb-1.2.1&q=80&w=2000"
+            src={post.info.cover_image}
             alt="post image"
             className="w-full h-full object-cover"
           />
@@ -71,9 +121,9 @@ export default function Post() {
                     stroke="currentColor"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                     />
                   </svg>
@@ -81,85 +131,8 @@ export default function Post() {
               />
             </div>
           </div>
-          <div className="col-span-full md:col-start-3 md:col-span-10 lg:col-span-8 space-y-8 text-lg mb-12 md:mb-0">
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae
-              autem illum ullam libero cumque voluptas, a quo ipsam beatae ut
-              aliquam neque, aperiam harum id? Amet tempora quis quibusdam
-              architecto? Lorem ipsum dolor, sit amet consectetur adipisicing
-              elit. Quae autem illum ullam libero cumque voluptas, a quo ipsam
-              beatae ut aliquam neque, aperiam harum id? Amet tempora quis
-              quibusdam architecto?
-            </p>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae
-              autem illum ullam libero cumque voluptas, a quo ipsam beatae ut
-              aliquam neque, aperiam harum id? Amet tempora quis quibusdam
-              architecto?
-            </p>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae
-              autem illum ullam libero cumque voluptas, a quo ipsam beatae ut
-              aliquam neque, aperiam harum id? Amet tempora quis quibusdam
-              architecto?
-            </p>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae
-              autem illum ullam libero cumque voluptas, a quo ipsam beatae ut
-              aliquam neque, aperiam harum id? Amet tempora quis quibusdam
-              architecto?
-            </p>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae
-              autem illum ullam libero cumque voluptas, a quo ipsam beatae ut
-              aliquam neque, aperiam harum id? Amet tempora quis quibusdam
-              architecto?
-            </p>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae
-              autem illum ullam libero cumque voluptas, a quo ipsam beatae ut
-              aliquam neque, aperiam harum id? Amet tempora quis quibusdam
-              architecto?
-            </p>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae
-              autem illum ullam libero cumque voluptas, a quo ipsam beatae ut
-              aliquam neque, aperiam harum id? Amet tempora quis quibusdam
-              architecto? Lorem ipsum dolor, sit amet consectetur adipisicing
-              elit. Quae autem illum ullam libero cumque voluptas, a quo ipsam
-              beatae ut aliquam neque, aperiam harum id? Amet tempora quis
-              quibusdam architecto?
-            </p>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae
-              autem illum ullam libero cumque voluptas, a quo ipsam beatae ut
-              aliquam neque, aperiam harum id? Amet tempora quis quibusdam
-              architecto?
-            </p>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae
-              autem illum ullam libero cumque voluptas, a quo ipsam beatae ut
-              aliquam neque, aperiam harum id? Amet tempora quis quibusdam
-              architecto?
-            </p>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae
-              autem illum ullam libero cumque voluptas, a quo ipsam beatae ut
-              aliquam neque, aperiam harum id? Amet tempora quis quibusdam
-              architecto?
-            </p>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae
-              autem illum ullam libero cumque voluptas, a quo ipsam beatae ut
-              aliquam neque, aperiam harum id? Amet tempora quis quibusdam
-              architecto?
-            </p>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae
-              autem illum ullam libero cumque voluptas, a quo ipsam beatae ut
-              aliquam neque, aperiam harum id? Amet tempora quis quibusdam
-              architecto?
-            </p>
+          <div className="col-span-full md:col-start-3 md:col-span-10 lg:col-span-8 mb-12 md:mb-0">
+            <Blocks blocks={post.blocks} />
           </div>
         </div>
       </div>

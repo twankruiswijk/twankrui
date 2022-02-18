@@ -30,7 +30,7 @@ module.exports = {
       },
       boxShadow: {
         primary: '0 2px 7px 2px rgba(30, 36, 104, .85)',
-        primaryHalf: '0 1px 5px 2px rgba(30, 36, 104, 1)',
+        primaryHalf: '0 1px 5px 2px rgba(30, 36, 104, .5)',
       },
     },
   },

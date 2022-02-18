@@ -26,12 +26,12 @@ export default function Card({
           alt={title}
           className="h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-600/25 to-brand-600/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-600/40 to-brand-600/90" />
       </div>
 
       <div className="p-4">
-        <h1 className="text-lg font-semibold">{title}</h1>
-        <p className="text-white/80">{description}</p>
+        <h1 className="text-lg font-bold">{title}</h1>
+        <p className="text-white/80 text-sm">{description}</p>
       </div>
     </article>
   );

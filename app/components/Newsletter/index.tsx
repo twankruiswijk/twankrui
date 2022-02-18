@@ -14,16 +14,15 @@ export default function Newsletter({ column }: Props) {
       >
         <div className={`flex flex-col ${column ? '' : 'md:flex-row'} `}>
           <div className="revue-form-group">
-            <label htmlFor="member_email" className="hidden">
-              Email address
+            <label>
+              <span className="hidden">Email address</span>
+              <input
+                className="revue-form-field w-full text-base px-8 py-3 rounded-md bg-transparent border border-white text-center"
+                placeholder="Enter your email address"
+                type="email"
+                name="member[email]"
+              />
             </label>
-            <input
-              className="revue-form-field w-full text-base px-8 py-3 rounded-md bg-transparent border border-white text-center"
-              placeholder="Enter your email address"
-              type="email"
-              name="member[email]"
-              id="member_email"
-            />
           </div>
           <div
             className={`revue-form-actions mt-4 ${
@@ -34,13 +33,12 @@ export default function Newsletter({ column }: Props) {
               type="submit"
               value="Join my newsletter"
               name="member[subscribe]"
-              id="member_submit"
               className="w-full px-8 py-3 lg:px-12 border rounded-md text-base font-semibold cursor-pointer shadow-primary transition-shadow hover:shadow-primaryHalf"
             />
           </div>
         </div>
         <div
-          className={`revue-form-footer text-xs leading-relaxed opacity-25 mt-4 ${
+          className={`revue-form-footer text-xs leading-relaxed opacity-50 mt-4 ${
             column ? '' : 'md:absolute'
           }`}
         >

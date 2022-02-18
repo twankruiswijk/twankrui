@@ -16,3 +16,7 @@ html {
     scroll-behavior: auto;
   }
 }
+
+.blog li + p {
+  margin-top: 2rem;
+}

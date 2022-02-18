@@ -1,8 +1,66 @@
+import { useEffect, useState } from 'react';
+import { useLoaderData, useFetcher } from 'remix';
+import type { LoaderFunction } from 'remix';
+
 import Card from '~/components/Card';
 import Newsletter from '~/components/Newsletter';
+import { getPosts } from '~/lib/notion';
+import type { Post } from '~/lib/notion';
 import { heading, paragraph } from '~/styles/typography';
 
+type Posts = {
+  data: Post[];
+  nextCursor: string | undefined;
+  hasMore: boolean;
+};
+
+export let loader: LoaderFunction = async ({ request }) => {
+  let url = new URL(request.url);
+
+  let cursor: string[] | undefined = url.searchParams.getAll('cursor');
+
+  const posts = await getPosts(cursor.length ? cursor[0] : undefined);
+
+  return {
+    data: posts.data,
+    nextCursor: posts.next_cursor,
+    hasMore: posts.has_more,
+  };
+};
+
 export default function BlogIndex() {
+  const fetcher = useFetcher();
+  const initialPosts = useLoaderData<Posts>();
+  const [posts, setPosts] = useState<Posts>(initialPosts);
+
+  const fetchMorePosts = (link: string) => {
+    fetcher.load(link);
+  };
+
+  useEffect(() => {
+    if (fetcher.data) {
+      setPosts((prevPosts: Posts) => ({
+        data: [...prevPosts.data, ...fetcher.data.data],
+        nextCursor: fetcher.data.nextCursor,
+        hasMore: fetcher.data.hasMore,
+      }));
+    }
+  }, [fetcher.data]);
+
+  const renderPosts = posts.data.map((p: Post) => (
+    <div
+      key={p.title}
+      className="mb-4 lg:mb-0 col-span-full md:col-span-6 lg:col-span-4"
+    >
+      <Card
+        title={p.title}
+        description={p.summary}
+        linkUrl={`/blog/${p.slug}`}
+        imageUrl={p.cover_image}
+      />
+    </div>
+  ));
+
   return (
     <main>
       <section className="pt-20 md:pt-32 mb-8">
@@ -30,59 +88,20 @@ export default function BlogIndex() {
       <section className="py-12 md:py-32">
         <div className="container">
           <div className="grid gap-x-4 gap-y-4 grid-cols-12 lg:gap-y-8">
-            <div className="mb-4 lg:mb-0 col-span-full md:col-span-6 lg:col-span-4">
-              <Card
-                linkUrl="https://www.indiehackers.com/Twan"
-                externalLink={true}
-                imageUrl="/writing/indiehackers.jpg"
-                title="Indie Hackers"
-                description="Writing posts and answering other indie hacker's questions."
-              />
-            </div>
-            <div className="mb-4 lg:mb-0 col-span-full md:col-span-6 lg:col-span-4">
-              <Card
-                linkUrl="https://www.indiehackers.com/Twan"
-                externalLink={true}
-                imageUrl="/writing/indiehackers.jpg"
-                title="Indie Hackers"
-                description="Writing posts and answering other indie hacker's questions."
-              />
-            </div>
-            <div className="mb-4 lg:mb-0 col-span-full md:col-span-6 lg:col-span-4">
-              <Card
-                linkUrl="https://www.indiehackers.com/Twan"
-                externalLink={true}
-                imageUrl="/writing/indiehackers.jpg"
-                title="Indie Hackers"
-                description="Writing posts and answering other indie hacker's questions."
-              />
-            </div>
-            <div className="mb-4 lg:mb-0 col-span-full md:col-span-6 lg:col-span-4">
-              <Card
-                linkUrl="https://www.indiehackers.com/Twan"
-                externalLink={true}
-                imageUrl="/writing/indiehackers.jpg"
-                title="Indie Hackers"
-                description="Writing posts and answering other indie hacker's questions."
-              />
-            </div>
-            <div className="mb-4 lg:mb-0 col-span-full md:col-span-6 lg:col-span-4">
-              <Card
-                linkUrl="https://www.indiehackers.com/Twan"
-                externalLink={true}
-                imageUrl="/writing/indiehackers.jpg"
-                title="Indie Hackers"
-                description="Writing posts and answering other indie hacker's questions."
-              />
-            </div>
-            <div className="mb-4 lg:mb-0 col-span-full md:col-span-6 lg:col-span-4">
-              <Card
-                linkUrl="https://www.indiehackers.com/Twan"
-                externalLink={true}
-                imageUrl="/writing/indiehackers.jpg"
-                title="Indie Hackers"
-                description="Writing posts and answering other indie hacker's questions."
-              />
+            {renderPosts}
+
+            <div className="col-span-full">
+              {fetcher.type === 'normalLoad' && <p>loading</p>}
+
+              {posts.hasMore && (
+                <button
+                  onClick={() =>
+                    fetchMorePosts(`/blog?cursor=${posts.nextCursor}`)
+                  }
+                >
+                  Fetch more
+                </button>
+              )}
             </div>
           </div>
         </div>

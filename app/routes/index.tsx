@@ -11,8 +11,7 @@ const featuredProjects = [
   {
     logoUrl: '/projects/senorwooly.png',
     title: 'Señor Wooly',
-    description:
-      'While working at MOIJ, I was in charge of completely re-writing the front-end code from scratch. We completely rebuild the student and teacher environment for over a million users in ReactJS.\nI wrote an article about building the front-end, which you can read here.',
+    description: `While working at MOIJ, I was in charge of completely re-writing the front-end code from scratch. We completely rebuild the student and teacher environment for over a million users in ReactJS.\nI wrote an article about building the front-end, which you can read here.`,
     linkUrl: 'https://senorwooly.com',
   },
   {
