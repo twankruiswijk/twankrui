@@ -1,5 +1,18 @@
+import { MetaFunction } from 'remix';
+
 import { heading, paragraph } from '../styles/typography';
 import Button, { ButtonSize } from '~/components/Button';
+
+export const meta: MetaFunction = () => {
+  return {
+    title: 'Contact Twan',
+    description:
+      'Would you like to work together, ask me a question, or just drop me a line? Don’t hesitate to send me an email or DM on Twitter!',
+    'og:title': 'Contact Twan',
+    'og:description':
+      'Would you like to work together, ask me a question, or just drop me a line? Don’t hesitate to send me an email or DM on Twitter!',
+  };
+};
 
 export default function Contact() {
   return (

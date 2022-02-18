@@ -17,11 +17,28 @@ export let loader: LoaderFunction = async ({ request, params }) => {
 };
 
 export const meta: MetaFunction = ({ data }) => {
-  return {
+  if (!data) {
+    return {
+      title: 'No post!',
+      description: 'No post found',
+    };
+  }
+
+  const defaultMetas = {
     title: data.info.title,
     description: data.info.summary,
+    'og:title': data.info.title,
+    'og:description': data.info.summary,
+    'og:type': 'article',
     'og:image': data.info.cover_image,
+    'og:url': 'https://twankrui.com',
   };
+
+  if (data.info.canonical) {
+    return { ...defaultMetas, canonical: data.info.canonical };
+  }
+
+  return defaultMetas;
 };
 
 export default function Post() {

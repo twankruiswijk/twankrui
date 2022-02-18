@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLoaderData, useFetcher } from 'remix';
+import { useLoaderData, useFetcher, MetaFunction } from 'remix';
 import type { LoaderFunction } from 'remix';
 
 import Card from '~/components/Card';
@@ -7,6 +7,17 @@ import Newsletter from '~/components/Newsletter';
 import { getPosts } from '~/lib/notion';
 import type { Post } from '~/lib/notion';
 import { heading, paragraph } from '~/styles/typography';
+
+export const meta: MetaFunction = () => {
+  return {
+    title: 'twankrui.com blog',
+    description:
+      'This blog page contains all my articles, tutorials, tweets, and other goodies that I’ve shared on the internet over the years.',
+    'og:title': 'Contact Twan',
+    'og:description':
+      'This blog page contains all my articles, tutorials, tweets, and other goodies that I’ve shared on the internet over the years.',
+  };
+};
 
 type Posts = {
   data: Post[];
@@ -67,13 +78,16 @@ export default function BlogIndex() {
         <div className="container">
           <div className="grid gap-x-4 grid-cols-12 grid-rows-[min-content]">
             <h1 className={`${heading} inset-1 col-span-full`}>
-              &gt; I build things for the web
+              &gt; Here is everything I published.
             </h1>
 
             <p className={`${paragraph} mb-8 col-span-full lg:col-span-8`}>
-              I am an independent creator who loves to help you build your next
-              front-end. Besides writing code, I write about code, productivity,
-              and remote work.
+              This blog page contains all my articles, tutorials, tweets, and
+              other goodies that I’ve shared on the internet over the years.
+            </p>
+
+            <p className={`${paragraph} mb-4 col-span-full lg:col-span-8`}>
+              Want to stay up to date with what I publish?
             </p>
 
             <div className="col-span-full">

@@ -14,7 +14,21 @@ import Footer from './components/Navigation/Footer';
 import styles from './tailwind.css';
 
 export const meta: MetaFunction = () => {
-  return { title: 'New Remix App' };
+  const description =
+    'Twan Kruiswijk is an independent creator who loves to help you build your next front-end. Besides writing code, I write about code, productivity, and remote work.';
+
+  return {
+    description,
+    keywords:
+      'front-end, code, productivity, remote work, creator, developer, designer',
+    'twitter:card': 'summary_large_image',
+    'twitter:creator': '@twankrui',
+    'twitter:site': '@twankrui',
+    'og:url': 'https://twankrui.com',
+    'og:title': 'Twan Kruiswijk',
+    'og:description': description,
+    'og:image': '/ogimage.jpg',
+  };
 };
 
 export function links() {
