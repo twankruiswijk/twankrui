@@ -16,6 +16,8 @@ type ButtonProps = {
   handleClick?: () => void;
   isExternalLink?: boolean;
   size?: ButtonSize;
+  fixedWidth?: string;
+  disabled?: boolean;
 };
 
 export default function Button({
@@ -25,11 +27,15 @@ export default function Button({
   variant,
   isExternalLink,
   size,
+  fixedWidth,
+  disabled,
 }: ButtonProps) {
   const buttonStyles = `block ${
     size === ButtonSize.sm ? 'text-sm px-4 py-3' : 'px-8 py-3 lg:px-12'
   } border rounded-md font-semibold text-center shadow-primary ${
-    variant === ButtonVariant.secondary ? 'bg-[#137D44]' : null
+    variant === ButtonVariant.secondary ? 'bg-[#137D44]' : ''
+  } ${fixedWidth ? `w-full ${fixedWidth}` : ''} ${
+    disabled ? 'opacity-75' : ''
   } transition-shadow hover:shadow-primaryHalf`;
 
   if (isExternalLink) {
@@ -53,7 +59,7 @@ export default function Button({
   }
 
   return (
-    <button onClick={handleClick} className={buttonStyles}>
+    <button onClick={handleClick} className={buttonStyles} disabled={disabled}>
       {title}
     </button>
   );

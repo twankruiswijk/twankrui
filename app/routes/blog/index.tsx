@@ -7,6 +7,7 @@ import Newsletter from '~/components/Newsletter';
 import { getPosts } from '~/lib/notion';
 import type { Post } from '~/lib/notion';
 import { heading, paragraph } from '~/styles/typography';
+import Button from '~/components/Button';
 
 export const meta: MetaFunction = () => {
   return {
@@ -61,7 +62,7 @@ export default function BlogIndex() {
   const renderPosts = posts.data.map((p: Post) => (
     <div
       key={p.title}
-      className="mb-4 lg:mb-0 col-span-full md:col-span-6 lg:col-span-4"
+      className="mb-2 md:mb-4 lg:mb-0 col-span-full md:col-span-6 lg:col-span-4"
     >
       <Card
         title={p.title}
@@ -105,16 +106,19 @@ export default function BlogIndex() {
             {renderPosts}
 
             <div className="col-span-full">
-              {fetcher.type === 'normalLoad' && <p>loading</p>}
-
               {posts.hasMore && (
-                <button
-                  onClick={() =>
+                <Button
+                  title={
+                    fetcher.type === 'normalLoad'
+                      ? 'Loading...'
+                      : 'Load more blogs'
+                  }
+                  fixedWidth="md:w-60"
+                  handleClick={() =>
                     fetchMorePosts(`/blog?cursor=${posts.nextCursor}`)
                   }
-                >
-                  Fetch more
-                </button>
+                  disabled={fetcher.type === 'normalLoad'}
+                />
               )}
             </div>
           </div>
