@@ -1,9 +1,33 @@
-import { Link, NavLink } from 'remix';
+import { useEffect, useState } from 'react';
+import { Link, NavLink, useTransition } from 'remix';
 import { ReactNode } from 'react';
 
-import Button from '~/components/Button';
+import Button, { ButtonSize } from '~/components/Button';
 
 export default function Navigation() {
+  const transition = useTransition();
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleMenuClick = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  useEffect(() => {
+    if (transition.state === 'idle') {
+      setMenuOpen(false);
+    }
+  }, [transition.state]);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+      return;
+    }
+
+    document.body.style.overflow = 'unset';
+  }, [menuOpen]);
+
   return (
     <header className="border-b border-white/25">
       <div className="container">
@@ -24,23 +48,33 @@ export default function Navigation() {
             </div>
           </Link>
 
-          <ul className="flex items-center space-x-6 lg:space-x-8 hidden md:flex">
-            <li>
-              <PrimaryLink path="/#projects">Projects</PrimaryLink>
-            </li>
-            <li>
-              <PrimaryLink path="/#about">About me</PrimaryLink>
-            </li>
-            <li>
-              <PrimaryLink path="/blog">Blog</PrimaryLink>
-            </li>
-            <li>
-              <PrimaryLink path="/contact">Contact</PrimaryLink>
-            </li>
-            <li>
-              <Button title="Hire me" linkUrl="/contact" />
-            </li>
+          <ul className={menuOpen ? 'block' : 'hidden md:block'}>
+            <div className="container md:px-0 md:max-w-[unset] flex flex-col md:flex-row md:items-center fixed z-10 md:z-auto top-[81px] md:top-[unset] md:relative pt-6 md:pt-0 space-y-6 md:space-y-0 md:space-x-6 lg:space-x-8 bg-brand-600 inset-0 md:inset-[unset]">
+              <li>
+                <PrimaryLink path="/#projects">Projects</PrimaryLink>
+              </li>
+              <li>
+                <PrimaryLink path="/#about">About me</PrimaryLink>
+              </li>
+              <li>
+                <PrimaryLink path="/blog">Blog</PrimaryLink>
+              </li>
+              <li>
+                <PrimaryLink path="/contact">Contact</PrimaryLink>
+              </li>
+              <li>
+                <Button title="Hire me" linkUrl="/contact" />
+              </li>
+            </div>
           </ul>
+
+          <div className="block md:hidden">
+            <Button
+              title={menuOpen ? 'Close Menu' : 'Open Menu'}
+              handleClick={() => handleMenuClick()}
+              size={ButtonSize.sm}
+            />
+          </div>
         </nav>
       </div>
     </header>
@@ -56,7 +90,7 @@ const PrimaryLink = ({ path, children }: PrimaryLinkProps) => {
   return (
     <NavLink
       to={path}
-      className="text-md lg:text-lg font-semibold hover:underline decoration-2 underline-offset-1"
+      className="block text-md lg:text-lg font-semibold hover:underline decoration-2 underline-offset-1 w-full md:w-auto"
     >
       {children}
     </NavLink>
