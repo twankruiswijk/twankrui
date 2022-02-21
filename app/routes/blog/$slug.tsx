@@ -103,7 +103,7 @@ export default function Post() {
           </div>
         </div>
 
-        <div className="w-full h-80 md:h-[34rem] rounded-md overflow-hidden shadow-primary mb-10 md:mb-16">
+        <div className="w-full h-54 md:h-[34rem] rounded-md overflow-hidden shadow-primary mb-10 md:mb-16">
           <img
             src={post.info.cover_image}
             alt="post image"
