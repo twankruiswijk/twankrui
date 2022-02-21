@@ -1,9 +1,12 @@
 import { ReactNode } from 'react';
+import { useAlert } from 'react-alert';
 
 import Button, { ButtonSize } from '../Button';
 import Newsletter from '../Newsletter';
 
 export default function Footer() {
+  const alert = useAlert();
+
   const footerTitleStyles = 'text-2xl font-semibold mb-1';
   const footerTextStyles = 'text-base text-white/80 mb-4';
 
@@ -115,9 +118,10 @@ export default function Footer() {
               <Button
                 title="Copy to clipboard"
                 size={ButtonSize.sm}
-                handleClick={() =>
-                  navigator.clipboard.writeText('twan@tarch.nl')
-                }
+                handleClick={() => {
+                  navigator.clipboard.writeText('twan@tarch.nl');
+                  alert.show('My email has been copied to your clipboard! 🎉');
+                }}
               />
               <Button
                 isExternalLink

@@ -1,4 +1,5 @@
 import { MetaFunction } from 'remix';
+import { useAlert } from 'react-alert';
 
 import { heading, paragraph } from '../styles/typography';
 import Button, { ButtonSize } from '~/components/Button';
@@ -15,6 +16,8 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Contact() {
+  const alert = useAlert();
+
   return (
     <main>
       <section className="py-20 md:py-32">
@@ -59,9 +62,12 @@ export default function Contact() {
                 <Button
                   title="Copy to clipboard"
                   size={ButtonSize.sm}
-                  handleClick={() =>
-                    navigator.clipboard.writeText('twan@tarch.nl')
-                  }
+                  handleClick={() => {
+                    navigator.clipboard.writeText('twan@tarch.nl');
+                    alert.show(
+                      'My email has been copied to your clipboard! 🎉',
+                    );
+                  }}
                 />
                 <Button
                   isExternalLink

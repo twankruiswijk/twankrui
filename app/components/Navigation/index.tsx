@@ -34,9 +34,11 @@ export default function Navigation() {
         <nav className="flex justify-between items-center py-4">
           <Link to="/" className="flex items-center">
             <img
-              src="/profile.png"
+              src="/profile.webp"
               alt="hello, it's me"
               className="h-12 w-12"
+              height="48px"
+              width="48px"
             />
             <div className="flex flex-col ml-2.5">
               <span className="text-lg font-semibold -mb-0.5 leading-nonew">
