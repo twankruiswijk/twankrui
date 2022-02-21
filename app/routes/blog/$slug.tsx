@@ -9,6 +9,12 @@ export let loader: LoaderFunction = async ({ request, params }) => {
   let url = new URL(request.url);
   const post = await getPost(params.slug!);
 
+  if (post.error) {
+    throw new Response('Not Found', {
+      status: 404,
+    });
+  }
+
   return {
     info: post.pageInfo,
     blocks: post.blocks,

@@ -70,6 +70,10 @@ export const getPost = async (slug: string) => {
     },
   });
 
+  if (post.results.length === 0) {
+    return { pageInfo: null, blocks: null, error: "Page doesn't exist" };
+  }
+
   const pageId = post.results[0].id;
 
   const page = await notion.pages.retrieve({ page_id: pageId });
