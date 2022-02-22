@@ -22,7 +22,7 @@ function normalizePosts(data: any) {
 export const getPosts = async (cursor?: string | undefined) => {
   const response = await notion.databases.query({
     database_id: databaseId,
-    page_size: 3,
+    page_size: 9,
     start_cursor: cursor,
     filter: {
       and: [
