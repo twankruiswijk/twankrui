@@ -69,6 +69,7 @@ export default function BlogIndex() {
         description={p.summary}
         linkUrl={`/blog/${p.slug}`}
         imageUrl={p.cover_image}
+        variant="blog"
       />
     </div>
   ));
