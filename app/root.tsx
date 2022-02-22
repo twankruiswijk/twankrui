@@ -79,15 +79,15 @@ export function links() {
   ];
 }
 
-export default function App() {
-  const alertOptions = {
-    position: positions.BOTTOM_CENTER,
-    timeout: 5000,
-    offset: '16px',
-    type: types.SUCCESS,
-    transition: transitions.FADE,
-  };
+const alertOptions = {
+  position: positions.BOTTOM_CENTER,
+  timeout: 5000,
+  offset: '16px',
+  type: types.SUCCESS,
+  transition: transitions.FADE,
+};
 
+export default function App() {
   return (
     <html lang="en">
       <head>
@@ -118,7 +118,7 @@ export function CatchBoundary() {
 
   switch (caught.status) {
     case 404:
-      message = "This is not the page you're looking for";
+      message = "This is not the page you're looking for.";
       break;
     default:
       throw new Error(caught.data || caught.statusText);
@@ -131,30 +131,32 @@ export function CatchBoundary() {
         <Meta />
         <Links />
       </head>
-      <body className="h-full bg-brand-600 text-white">
-        <Navigation />
+      <AlertProvider template={Alert} {...alertOptions}>
+        <body className="h-full bg-brand-600 text-white">
+          <Navigation />
 
-        <main className="flex py-20 md:py-32 flex-col items-center justify-center">
-          <div className="h-40 w-40 mx-auto mb-10">
-            <img
-              src="/404-cat.webp"
-              alt="even the cat is angry at the server"
-            />
-          </div>
-          <h1 className={`${heading} mb-2 md:mb-2`}>
-            {caught.status}: {caught.statusText}
-          </h1>
+          <main className="flex py-20 md:py-32 flex-col items-center justify-center">
+            <div className="h-40 w-40 mx-auto mb-10">
+              <img
+                src="/404-cat.webp"
+                alt="even the cat is angry at the server"
+              />
+            </div>
+            <h1 className={`${heading} mb-2 md:mb-2`}>
+              {caught.status}: {caught.statusText}
+            </h1>
 
-          {message && <p className={paragraph}>{message}</p>}
+            {message && <p className={paragraph}>{message}</p>}
 
-          <div className="w-48 mx-auto mt-6">
-            <Button title="Take me home" linkUrl="/" size={ButtonSize.sm} />
-          </div>
-        </main>
-        <Footer />
+            <div className="w-48 mx-auto mt-6">
+              <Button title="Take me home" linkUrl="/" size={ButtonSize.sm} />
+            </div>
+          </main>
+          <Footer />
 
-        <Scripts />
-      </body>
+          <Scripts />
+        </body>
+      </AlertProvider>
     </html>
   );
 }
