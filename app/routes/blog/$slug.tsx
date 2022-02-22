@@ -114,6 +114,8 @@ export default function Post() {
             src={post.info.cover_image}
             alt="post image"
             className="w-full h-full object-cover"
+            width="1076px"
+            height="512px"
           />
         </div>
 

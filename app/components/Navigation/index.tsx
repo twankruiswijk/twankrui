@@ -50,24 +50,26 @@ export default function Navigation() {
             </div>
           </Link>
 
-          <ul className={menuOpen ? 'block' : 'hidden md:block'}>
-            <div className="container md:px-0 md:max-w-[unset] flex flex-col md:flex-row md:items-center fixed z-10 md:z-auto top-[81px] md:top-[unset] md:relative pt-6 md:pt-0 space-y-6 md:space-y-0 md:space-x-6 lg:space-x-8 bg-brand-600 inset-0 md:inset-[unset]">
-              <li>
-                <PrimaryLink path="/#projects">Projects</PrimaryLink>
-              </li>
-              <li>
-                <PrimaryLink path="/#about">About me</PrimaryLink>
-              </li>
-              <li>
-                <PrimaryLink path="/blog">Blog</PrimaryLink>
-              </li>
-              <li>
-                <PrimaryLink path="/contact">Contact</PrimaryLink>
-              </li>
-              <li>
-                <Button title="Hire me" linkUrl="/contact" />
-              </li>
-            </div>
+          <ul
+            className={`${
+              menuOpen ? 'flex' : 'hidden md:flex md:justify-end'
+            } container md:px-0 md:max-w-[unset] flex-col md:flex-row md:items-center fixed z-10 md:z-auto top-[81px] md:top-[unset] md:relative pt-6 md:pt-0 space-y-6 md:space-y-0 md:space-x-6 lg:space-x-8 bg-brand-600 inset-0 md:inset-[unset]`}
+          >
+            <li>
+              <PrimaryLink path="/#projects">Projects</PrimaryLink>
+            </li>
+            <li>
+              <PrimaryLink path="/#about">About me</PrimaryLink>
+            </li>
+            <li>
+              <PrimaryLink path="/blog">Blog</PrimaryLink>
+            </li>
+            <li>
+              <PrimaryLink path="/contact">Contact</PrimaryLink>
+            </li>
+            <li>
+              <Button title="Hire me" linkUrl="/contact" />
+            </li>
           </ul>
 
           <div className="block md:hidden">

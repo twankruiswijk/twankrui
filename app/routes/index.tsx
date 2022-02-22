@@ -151,6 +151,8 @@ export default function Index() {
               src="/twan.webp"
               alt="it's a me, Twan"
               className="rounded-md shadow-primary"
+              width="348px"
+              height="425px"
             />
           </div>
         </section>

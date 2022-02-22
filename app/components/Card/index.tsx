@@ -25,6 +25,8 @@ export default function Card({
           src={imageUrl}
           alt={title}
           className="h-full w-full object-cover object-center"
+          width="348px"
+          height="240px"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-600/40 to-brand-600/90" />
       </div>

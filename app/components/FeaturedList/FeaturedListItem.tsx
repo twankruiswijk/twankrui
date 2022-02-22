@@ -14,8 +14,14 @@ export default function FeaturedListItem({
 
   return (
     <article className="flex flex-col md:flex-row p-6 border rounded-md border-white/25">
-      <div className="w-28 md:w-24 shrink-0 mb-3 md:mt-6">
-        <img src={logoUrl} alt={title} className="object-cover" />
+      <div className="h-8 w-28 md:w-24 shrink-0 mb-3 md:mt-6">
+        <img
+          src={logoUrl}
+          alt={title}
+          width="112px"
+          height="32px"
+          className="object-cover"
+        />
       </div>
 
       <section className="md:ml-8">
