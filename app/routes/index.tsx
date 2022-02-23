@@ -19,7 +19,7 @@ const featuredProjects = [
     title: 'upupland.xyz',
     description:
       "Crypto and web3, who hasn't heard about the hype? We build a web3 directory where people can find and learn anything about web3.\nThis project uses Notion as a CMS, which released their public API. I also leveraged NextJS's static page generation to render the content from Notion. This way, we don't hit the API threshold, and as an (intended) bonus, it makes the site fast to navigate.",
-    linkUrl: 'https:/upupland.xyz',
+    linkUrl: 'https://upupland.xyz',
   },
   {
     logoUrl: '/projects/duidelijk.webp',

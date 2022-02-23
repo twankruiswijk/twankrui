@@ -19,7 +19,7 @@ export default function Newsletter({ column }: Props) {
               <input
                 className={`revue-form-field w-full ${
                   column ? '' : 'md:w-72'
-                } text-base px-8 py-3 rounded-md bg-transparent border border-white text-center`}
+                } text-base px-8 py-3 rounded-md bg-transparent border border-white text-center shadow-inner`}
                 placeholder={`${
                   column ? 'Your email address' : 'Enter your email address'
                 } `}

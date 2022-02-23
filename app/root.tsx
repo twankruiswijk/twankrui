@@ -127,6 +127,8 @@ export function CatchBoundary() {
   return (
     <html className="h-full">
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>Oopsie!</title>
         <Meta />
         <Links />
@@ -155,6 +157,7 @@ export function CatchBoundary() {
           <Footer />
 
           <Scripts />
+          {process.env.NODE_ENV === 'development' && <LiveReload />}
         </body>
       </AlertProvider>
     </html>

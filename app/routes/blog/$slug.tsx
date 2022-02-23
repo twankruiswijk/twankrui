@@ -183,7 +183,7 @@ export default function Post() {
               />
             </div>
           </div>
-          <div className="col-span-full md:col-start-3 md:col-span-10 lg:col-span-8 mb-12 md:mb-0">
+          <div className="col-span-full md:col-start-3 md:col-span-10 lg:col-span-8 mb-4 md:mb-0">
             <Blocks blocks={post.blocks} />
           </div>
         </div>
