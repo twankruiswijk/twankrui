@@ -38,7 +38,7 @@ export const meta: MetaFunction = () => {
     'og:url': 'https://twankrui.com',
     'og:title': 'Twan Kruiswijk',
     'og:description': description,
-    'og:image': '/ogimage.jpg',
+    'og:image': 'https://twankrui.com/ogimage.jpg',
     'msapplication-TileColor': '#00031d',
     'theme-color': '#00031d',
   };
