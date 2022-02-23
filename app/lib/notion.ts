@@ -12,10 +12,10 @@ export type Post = {
 
 function normalizePosts(data: any) {
   return data.map((d: any) => ({
-    title: d.properties.Title?.title[0].plain_text,
-    slug: d.properties.Slug?.rich_text[0].plain_text,
-    cover_image: d.properties.Image?.files[0].file.url,
-    summary: d.properties.Summary?.rich_text[0].plain_text,
+    title: d.properties.Title?.title[0]?.plain_text || '',
+    slug: d.properties.Slug?.rich_text[0]?.plain_text,
+    cover_image: d.properties.Image?.files[0]?.file.url || '/placeholder.webp',
+    summary: d.properties.Summary?.rich_text[0]?.plain_text || '',
   }));
 }
 
@@ -34,6 +34,12 @@ export const getPosts = async (cursor?: string | undefined) => {
         },
       ],
     },
+    sorts: [
+      {
+        property: 'Published_date',
+        direction: 'descending',
+      },
+    ],
   });
 
   return {
@@ -45,9 +51,9 @@ export const getPosts = async (cursor?: string | undefined) => {
 
 function normalizePostInfo(d: any) {
   return {
-    title: d.properties.Title?.title[0].plain_text,
-    cover_image: d.properties.Image?.files[0].file.url,
-    summary: d.properties.Summary?.rich_text[0].plain_text,
+    title: d.properties.Title?.title[0]?.plain_text,
+    cover_image: d.properties.Image?.files[0]?.file.url,
+    summary: d.properties.Summary?.rich_text[0]?.plain_text,
     canonical: d.properties.Canonical?.url,
     date: d.properties.Published_date?.date.start,
     source: d.properties.Source?.select?.name,

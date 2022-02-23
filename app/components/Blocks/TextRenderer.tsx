@@ -33,14 +33,16 @@ export default function TextRenderer({ content, plain }: Props) {
     return annotationClasses.join(' ');
   };
 
-  if (content.lenth === 1) {
+  if (content.length === 1) {
     const { annotations, text } = content[0];
 
     if (text.link) {
       return (
         <a
           href={text.link.url}
-          className={resolveTextDecoration(annotations)}
+          className={`${resolveTextDecoration(
+            annotations,
+          )} underline opacity-70`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -74,7 +76,9 @@ export default function TextRenderer({ content, plain }: Props) {
         <a
           key={index}
           href={text.link.url}
-          className={resolveTextDecoration(annotations)}
+          className={`${resolveTextDecoration(
+            annotations,
+          )} underline opacity-70`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -89,6 +93,10 @@ export default function TextRenderer({ content, plain }: Props) {
       </span>
     );
   });
+
+  if (plain) {
+    return renderSpans;
+  }
 
   return <p className={blogParagraph}>{renderSpans}</p>;
 }

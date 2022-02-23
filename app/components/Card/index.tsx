@@ -36,8 +36,10 @@ export default function Card({
           </div>
 
           <div className="p-4">
-            <h1 className="text-lg font-bold mb-1">{title}</h1>
-            <p className="text-white/80 text-sm">{description}</p>
+            {title && <h1 className="text-lg font-bold mb-1">{title}</h1>}
+            {description && (
+              <p className="text-white/80 text-sm">{description}</p>
+            )}
           </div>
         </article>
       );

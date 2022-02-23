@@ -94,7 +94,7 @@ export default function Post() {
     <article className="blog py-20 md:py-32">
       <div className="container">
         <div className="grid gap-x-4 grid-cols-12 mb-10 md:mb-16">
-          <div className="col-span-full lg:col-span-8">
+          <div className="col-span-full lg:col-span-9">
             <h1 className={`${heading} inset-1 col-span-full`}>
               &gt; {post.info.title}
             </h1>
@@ -109,15 +109,17 @@ export default function Post() {
           </div>
         </div>
 
-        <div className="w-full h-54 md:h-[32rem] rounded-md overflow-hidden shadow-primary mb-10 md:mb-16">
-          <img
-            src={post.info.cover_image}
-            alt="post image"
-            className="w-full h-full object-cover"
-            width="1076px"
-            height="512px"
-          />
-        </div>
+        {post.info.cover_image && (
+          <div className="w-full h-54 md:h-[32rem] rounded-md overflow-hidden shadow-primary mb-10 md:mb-16">
+            <img
+              src={post.info.cover_image}
+              alt="post image"
+              className="w-full h-full object-cover"
+              width="1076px"
+              height="512px"
+            />
+          </div>
+        )}
 
         <div className="grid gap-x-4 grid-cols-12">
           <div className="col-span-full md:col-span-1 order-1 md:order-none">
