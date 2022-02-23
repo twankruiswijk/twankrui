@@ -24,8 +24,8 @@ export default function Card({
   const renderCardContents = () => {
     if (variant === 'blog') {
       return (
-        <article>
-          <div className="h-44 w-full">
+        <article className="w-full">
+          <div className="h-60 md:h-44 w-full border rounder-md border-brand-400/75">
             <img
               src={imageUrl}
               alt={title}
@@ -36,9 +36,17 @@ export default function Card({
           </div>
 
           <div className="p-4">
-            {title && <h1 className="text-lg font-bold mb-1">{title}</h1>}
+            {title && (
+              <h1 className="text-lg font-semibold leading-snug mb-2">
+                {title}
+              </h1>
+            )}
             {description && (
-              <p className="text-white/80 text-sm">{description}</p>
+              <p className="text-white/80 text-sm">
+                {description.length > 110
+                  ? `${description.substring(0, 110)}...`
+                  : description}
+              </p>
             )}
           </div>
         </article>
