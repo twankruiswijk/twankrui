@@ -53,7 +53,7 @@ export default function Navigation() {
           <ul
             className={`${
               menuOpen ? 'flex' : 'hidden md:flex md:justify-end'
-            } container md:px-0 md:max-w-[unset] flex-col md:flex-row md:items-center fixed z-10 md:z-auto top-[81px] md:top-[unset] md:relative pt-6 md:pt-0 space-y-6 md:space-y-0 md:space-x-6 lg:space-x-8 bg-brand-600 inset-0 md:inset-[unset]`}
+            } px-4 md:px-0 md:max-w-[unset] flex-col md:flex-row md:items-center fixed z-10 md:z-auto top-[81px] md:top-[unset] md:relative pt-6 md:pt-0 space-y-6 md:space-y-0 md:space-x-6 lg:space-x-8 bg-brand-600 inset-0 md:inset-[unset]`}
           >
             <li>
               <PrimaryLink path="/#projects">Projects</PrimaryLink>

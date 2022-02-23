@@ -11,14 +11,14 @@ const featuredProjects = [
   {
     logoUrl: '/projects/senorwooly.webp',
     title: 'Señor Wooly',
-    description: `While working at MOIJ, I was in charge of completely re-writing the front-end code from scratch. We completely rebuild the student and teacher environment for over a million users in ReactJS.\nI wrote an article about building the front-end, which you can read here.`,
+    description: `While working at MOIJ, I was in charge of completely re-writing the front-end code from scratch. We completely rebuild the student and teacher environment for over a million users in ReactJS.\nFor this project, we incrementally implemented the React and Redux code to run alongside the other parts of the web application written in Go (with the HTML/template package).`,
     linkUrl: 'https://senorwooly.com',
   },
   {
     logoUrl: '/projects/upupland.webp',
     title: 'upupland.xyz',
     description:
-      "Crypto and web3, who hasn't heard about the hype? Together with @sven10hove, we build a web3 directory where people can find and learn anything about web3.\nThis project uses Notion as a CMS, which released their public API. I also leveraged NextJS's static page generation to render the content from Notion. This way, we don't hit the API threshold, and as an (intended) bonus, it makes the site fast to navigate.",
+      "Crypto and web3, who hasn't heard about the hype? We build a web3 directory where people can find and learn anything about web3.\nThis project uses Notion as a CMS, which released their public API. I also leveraged NextJS's static page generation to render the content from Notion. This way, we don't hit the API threshold, and as an (intended) bonus, it makes the site fast to navigate.",
     linkUrl: 'https:/upupland.xyz',
   },
   {
@@ -33,7 +33,7 @@ const featuredProjects = [
 export default function Index() {
   return (
     <main>
-      <section className="pt-20 md:pt-32 mb-8">
+      <section className="pt-20 md:pt-24 lg:pt-32 mb-8">
         <div className="container">
           <div className="grid gap-x-4 grid-cols-12 grid-rows-[min-content]">
             <h1 className={`${heading} inset-1 col-span-full`}>
@@ -63,7 +63,7 @@ export default function Index() {
         </div>
       </section>
 
-      <div id="projects" className="container pt-12 md:pt-32">
+      <div id="projects" className="container pt-12 md:pt-24 lg:pt-32">
         <FeaturedList
           title="&gt; What I built ⚙"
           description="Over the past years, I’ve built a lot of awesome front-ends, from landing pages to a full-blown e-learning platform that included games for the student and complex class management interfaces for the teachers."
@@ -72,7 +72,7 @@ export default function Index() {
         />
       </div>
 
-      <div className="container pt-12 md:pt-32">
+      <div className="container pt-12 md:pt-24 lg:pt-32">
         <section className="grid gap-x-4 grid-cols-12 grid-rows-[min-content]">
           <h1 className={`${heading} col-span-full`}>&gt; Where I write 🖊</h1>
           <p className={`${paragraph} mb-8 col-span-full lg:col-span-8`}>
@@ -123,25 +123,27 @@ export default function Index() {
 
             <div className={`${paragraph} font-normal text-white/80 space-y-4`}>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                ut orci mauris. Maecenas leo eros, malesuada ac leo tristique,
-                condimentum cursus diam. Vestibulum ante ipsum primis in
-                faucibus orci luctus et ultrices posuere cubilia curae.
+                Besides writing code and blog posts, I am also passionate about
+                creating music (I play many instruments, but the guitar is my
+                weapon of choice). On the weekends, you'll find me playing games
+                with friends or hacking on one of my many side projects.
               </p>
-
               <p>
-                Suspendisse tincidunt enim at diam suscipit dignissim. Etiam
-                enim nisl, scelerisque quis iaculis sed, mattis quis nisi.
-                Pellentesque ornare quis sapien ut facilisis. Proin suscipit et
-                nisi in condimentum.
-              </p>
-
-              <p>
-                Curabitur egestas risus erat, sit amet porta mi mollis eu. Duis
-                iaculis augue in ipsum hendrerit vulputate. Morbi fringilla
-                neque eget accumsan facilisis. Morbi rutrum nisi at purus
-                volutpat, luctus dapibus est accumsan. Aliquam sed massa in
-                libero vehicula laoreet.
+                During some of my working hours, I like to stream on Twitch. I
+                have been working remotely for the best part of my professional
+                life, and I always loved co-working with people who were
+                streaming. So, at the end of last year, I decided to start{' '}
+                <a
+                  href="https://www.twitch.tv/twankrui"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="font-semibold underline"
+                >
+                  my Twitch channel
+                </a>
+                , where you can find me working on any of my projects (of
+                course, with the approval of the stakeholders of those
+                projects).
               </p>
             </div>
           </div>

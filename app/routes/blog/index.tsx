@@ -76,7 +76,7 @@ export default function BlogIndex() {
 
   return (
     <main>
-      <section className="pt-20 md:pt-32 mb-8">
+      <section className="pt-20 md:pt-24 lg:pt-32 mb-8">
         <div className="container">
           <div className="grid gap-x-4 grid-cols-12 grid-rows-[min-content]">
             <h1 className={`${heading} inset-1 col-span-full`}>

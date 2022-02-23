@@ -114,7 +114,7 @@ export default function Footer() {
               Send me an email!
             </p>
 
-            <div className="flex space-x-4">
+            <div className="flex flex-col space-y-4 xl:space-y-0 xl:space-x-4 xl:flex-row">
               <Button
                 title="Copy to clipboard"
                 size={ButtonSize.sm}

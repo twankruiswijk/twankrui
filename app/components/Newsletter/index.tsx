@@ -17,8 +17,12 @@ export default function Newsletter({ column }: Props) {
             <label>
               <span className="hidden">Email address</span>
               <input
-                className="revue-form-field w-full text-base px-8 py-3 rounded-md bg-transparent border border-white text-center"
-                placeholder="Enter your email address"
+                className={`revue-form-field w-full ${
+                  column ? '' : 'md:w-72'
+                } text-base px-8 py-3 rounded-md bg-transparent border border-white text-center`}
+                placeholder={`${
+                  column ? 'Your email address' : 'Enter your email address'
+                } `}
                 type="email"
                 name="member[email]"
               />
