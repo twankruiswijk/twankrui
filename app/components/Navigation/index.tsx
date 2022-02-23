@@ -14,6 +14,11 @@ export default function Navigation() {
   };
 
   useEffect(() => {
+    if (transition.state === 'loading') {
+      document.body.style.position = 'unset';
+      document.body.style.overflow = 'unset';
+    }
+
     if (transition.state === 'idle') {
       setMenuOpen(false);
     }
@@ -22,10 +27,8 @@ export default function Navigation() {
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
-      return;
+      document.body.style.position = 'fixed';
     }
-
-    document.body.style.overflow = 'unset';
   }, [menuOpen]);
 
   return (

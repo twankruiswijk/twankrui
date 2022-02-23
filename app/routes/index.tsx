@@ -36,7 +36,7 @@ export default function Index() {
       <section className="pt-20 md:pt-24 lg:pt-32 mb-8">
         <div className="container">
           <div className="grid gap-x-4 grid-cols-12 grid-rows-[min-content]">
-            <h1 className={`${heading} inset-1 col-span-full`}>
+            <h1 className="text-4xl md:text-5xl md:leading-tight mb-6 md:mb-8 font-semibold inset-1 col-span-full">
               &gt; I build things for the web
             </h1>
 
@@ -72,7 +72,7 @@ export default function Index() {
         />
       </div>
 
-      <div className="container pt-12 md:pt-24 lg:pt-32">
+      <div className="container pt-20 md:pt-24 lg:pt-32">
         <section className="grid gap-x-4 grid-cols-12 grid-rows-[min-content]">
           <h1 className={`${heading} col-span-full`}>&gt; Where I write 🖊</h1>
           <p className={`${paragraph} mb-8 col-span-full lg:col-span-8`}>
@@ -116,7 +116,7 @@ export default function Index() {
         </section>
       </div>
 
-      <div id="about" className="container py-12 md:py-32">
+      <div id="about" className="container py-20 md:py-32">
         <section className="grid gap-x-4 grid-cols-12 grid-rows-[min-content]">
           <div className="col-span-full md:col-span-7">
             <h1 className={`${heading}`}>&gt; What I love ❤</h1>
