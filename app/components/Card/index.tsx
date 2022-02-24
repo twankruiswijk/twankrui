@@ -1,4 +1,5 @@
 import { Link } from 'remix';
+import BlurredUpImage from '~/components/BlurredUpImage';
 
 type Props = {
   imageUrl: string;
@@ -26,12 +27,14 @@ export default function Card({
       return (
         <article className="w-full">
           <div className="h-60 md:h-44 w-full border rounder-md border-brand-400/75">
-            <img
-              src={imageUrl}
-              alt={title}
-              className="h-full w-full object-cover object-center"
-              width="348px"
-              height="208px"
+            <BlurredUpImage
+              imgSrc={imageUrl}
+              props={{
+                alt: title,
+                className: 'h-full w-full object-cover object-center',
+                width: '348px',
+                height: '208px',
+              }}
             />
           </div>
 
