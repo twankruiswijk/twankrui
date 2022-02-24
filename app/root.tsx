@@ -24,21 +24,26 @@ import styles from './tailwind.css';
 import { heading, paragraph } from '~/styles/typography';
 
 export const meta: MetaFunction = () => {
+  const title = 'Twan Kruiswijk - front-end developer';
   const description =
     'Twan Kruiswijk is an independent creator who loves to help you build your next front-end. Besides writing code, I write about code, productivity, and remote work.';
+  const imageURL = 'https://twankrui.com/ogimage.jpg';
 
   return {
-    title: 'twankrui.com',
+    title: title,
     description,
     keywords:
       'front-end, code, productivity, remote work, creator, developer, designer',
+    'twitter:title': title,
+    'twitter:description': description,
     'twitter:card': 'summary_large_image',
     'twitter:creator': '@twankrui',
     'twitter:site': '@twankrui',
+    'twitter:image': imageURL,
     'og:url': 'https://twankrui.com',
     'og:title': 'Twan Kruiswijk',
     'og:description': description,
-    'og:image': 'https://twankrui.com/ogimage.jpg',
+    'og:image': imageURL,
     'msapplication-TileColor': '#00031d',
     'theme-color': '#00031d',
   };
