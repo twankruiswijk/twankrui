@@ -1,4 +1,4 @@
-import { MetaFunction } from 'remix';
+import { HeadersFunction, MetaFunction } from 'remix';
 import { useAlert } from 'react-alert';
 
 import { heading, paragraph } from '../styles/typography';
@@ -14,6 +14,13 @@ export const meta: MetaFunction = () => {
       'Would you like to work together, ask me a question, or just drop me a line? Don’t hesitate to send me an email or DM on Twitter!',
   };
 };
+
+export const headers: HeadersFunction = ({ loaderHeaders, parentHeaders }) => ({
+  ...parentHeaders,
+  ...loaderHeaders,
+  'Cache-Control':
+    'public, max-age=600, s-maxage=2678400, stale-while-revalidate=31540000000',
+});
 
 export default function Contact() {
   const alert = useAlert();

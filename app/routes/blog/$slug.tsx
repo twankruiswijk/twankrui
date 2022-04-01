@@ -1,9 +1,22 @@
 import { ReactNode, useCallback } from 'react';
-import { LoaderFunction, useLoaderData, MetaFunction } from 'remix';
+import {
+  LoaderFunction,
+  useLoaderData,
+  MetaFunction,
+  HeadersFunction,
+} from 'remix';
 import { getPost } from '~/lib/notion';
 import { heading } from '~/styles/typography';
 
 import Blocks from '~/components/Blocks';
+import BlurredUpImage from '~/components/BlurredUpImage';
+
+export const headers: HeadersFunction = ({ loaderHeaders, parentHeaders }) => ({
+  ...parentHeaders,
+  ...loaderHeaders,
+  'Cache-Control':
+    'public, max-age=300, s-maxage=1800, stale-while-revalidate=31540000000',
+});
 
 export let loader: LoaderFunction = async ({ request, params }) => {
   let url = new URL(request.url);
