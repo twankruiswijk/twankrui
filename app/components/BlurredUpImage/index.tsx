@@ -7,7 +7,7 @@ type Props = {
 };
 
 const BlurredUpImage: FC<Props> = ({ imgSrc, props }) => {
-  const [src, blur] = useProgressiveImg('./placeholder.webp', imgSrc);
+  const [src, blur] = useProgressiveImg('/placeholder.webp', imgSrc);
 
   return (
     <img

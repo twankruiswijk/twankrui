@@ -123,13 +123,15 @@ export default function Post() {
         </div>
 
         {post.info.cover_image && (
-          <div className="w-full h-54 md:h-[32rem] rounded-md overflow-hidden shadow-primary mb-10 md:mb-16">
-            <img
-              src={post.info.cover_image}
-              alt="post image"
-              className="w-full h-full object-cover"
-              width="1076px"
-              height="512px"
+          <div className=" w-full h-54 md:h-[32rem] rounded-md overflow-hidden shadow-primary mb-10 md:mb-16">
+            <BlurredUpImage
+              imgSrc={post.info.cover_image}
+              props={{
+                alt: post.info.title,
+                className: 'h-full w-full object-cover object-center',
+                width: '1076px',
+                height: '512px',
+              }}
             />
           </div>
         )}
