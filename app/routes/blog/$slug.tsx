@@ -46,6 +46,12 @@ export const meta: MetaFunction = ({ data }) => {
   const defaultMetas = {
     title: data.info.title,
     description: data.info.summary,
+    'twitter:title': data.info.title,
+    'twitter:description': data.info.summary,
+    'twitter:card': 'summary_large_image',
+    'twitter:creator': '@twankrui',
+    'twitter:site': '@twankrui',
+    'twitter:image': data.info.cover_imag,
     'og:title': data.info.title,
     'og:description': data.info.summary,
     'og:type': 'article',
