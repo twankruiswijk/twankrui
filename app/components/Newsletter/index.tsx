@@ -1,3 +1,5 @@
+import Button from '../Button';
+
 type Props = {
   column?: boolean;
 };
@@ -33,12 +35,7 @@ export default function Newsletter({ column }: Props) {
               column ? '' : 'md:mt-0 md:ml-2.5'
             }`}
           >
-            <input
-              type="submit"
-              value="Join my newsletter"
-              name="member[subscribe]"
-              className="w-full px-8 py-3 lg:px-12 border rounded-md text-base font-semibold cursor-pointer shadow-primary transition-shadow hover:shadow-primaryHalf"
-            />
+            <Button title="Join my newsletter" isNewsletter />
           </div>
         </div>
         <div

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink, useTransition } from 'remix';
 import { ReactNode } from 'react';
 
-import Button, { ButtonSize } from '~/components/Button';
+import Button, { ButtonSize, ButtonVariant } from '~/components/Button';
 
 export default function Navigation() {
   const transition = useTransition();
@@ -74,7 +74,11 @@ export default function Navigation() {
               <PrimaryLink path="/contact">Contact</PrimaryLink>
             </li>
             <li>
-              <Button title="Hire me" linkUrl="/contact" />
+              <Button
+                title="Hire me"
+                linkUrl="/contact"
+                variant={ButtonVariant.secondary}
+              />
             </li>
           </ul>
 
@@ -100,7 +104,7 @@ const PrimaryLink = ({ path, children }: PrimaryLinkProps) => {
   return (
     <NavLink
       to={path}
-      className="block text-md lg:text-lg font-semibold hover:underline decoration-2 underline-offset-1 w-full md:w-auto"
+      className="block text-md lg:text-lg font-medium hover:underline decoration-2 underline-offset-1 w-full md:w-auto"
     >
       {children}
     </NavLink>

@@ -21,6 +21,9 @@ export default function Footer() {
             </p>
 
             <div className="grid gap-x-4 grid-cols-[2rem_1fr] text-sm mb-6">
+              <span className="text-white/80">Co.</span>
+              <span>t-arch</span>
+
               <span className="text-white/80">Kvk</span>
               <span>84572922</span>
 

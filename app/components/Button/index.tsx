@@ -18,6 +18,7 @@ type ButtonProps = {
   size?: ButtonSize;
   fixedWidth?: string;
   disabled?: boolean;
+  isNewsletter?: boolean;
 };
 
 export default function Button({
@@ -29,14 +30,28 @@ export default function Button({
   size,
   fixedWidth,
   disabled,
+  isNewsletter,
 }: ButtonProps) {
   const buttonStyles = `block ${
     size === ButtonSize.sm ? 'text-sm px-4 py-3' : 'px-8 py-3 lg:px-12'
   } border rounded-md font-semibold text-center shadow-primary ${
-    variant === ButtonVariant.secondary ? 'bg-[#137D44]' : ''
-  } ${fixedWidth ? `w-full ${fixedWidth}` : ''} ${
+    variant === ButtonVariant.secondary
+      ? 'bg-[#137D44]'
+      : 'bg-gradient-to-tl from-purple-900 via-brand-400 to-brand-600'
+  } ${fixedWidth ? `w-full ${fixedWidth}` : 'w-full lg:w-auto'} ${
     disabled ? 'opacity-75' : ''
-  } transition-shadow hover:shadow-primaryHalf`;
+  } transition-shadow hover:shadow-primaryHalf cursor-pointer transition-transform hover:-translate-y-0.5`;
+
+  if (isNewsletter) {
+    return (
+      <input
+        type="submit"
+        value={title}
+        name="member[subscribe]"
+        className={buttonStyles}
+      />
+    );
+  }
 
   if (isExternalLink) {
     return (
