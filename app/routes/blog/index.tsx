@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useLoaderData, useFetcher, MetaFunction } from 'remix';
+import {
+  useLoaderData,
+  useFetcher,
+  MetaFunction,
+  HeadersFunction,
+} from 'remix';
 import type { LoaderFunction } from 'remix';
 
 import Card from '~/components/Card';
@@ -19,6 +24,12 @@ export const meta: MetaFunction = () => {
       'This blog page contains all my articles, tutorials, tweets, and other goodies that I’ve shared on the internet over the years.',
   };
 };
+
+export const headers: HeadersFunction = ({ loaderHeaders, parentHeaders }) => ({
+  ...parentHeaders,
+  ...loaderHeaders,
+  'Cache-Control': 'public, max-age=1, stale-while-revalidate=31540000000',
+});
 
 type Posts = {
   data: Post[];

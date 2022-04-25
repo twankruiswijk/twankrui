@@ -1,9 +1,22 @@
 import { ReactNode, useCallback } from 'react';
-import { LoaderFunction, useLoaderData, MetaFunction } from 'remix';
+import {
+  LoaderFunction,
+  useLoaderData,
+  MetaFunction,
+  HeadersFunction,
+} from 'remix';
 import { getPost } from '~/lib/notion';
 import { heading } from '~/styles/typography';
 
 import Blocks from '~/components/Blocks';
+import BlurredUpImage from '~/components/BlurredUpImage';
+
+export const headers: HeadersFunction = ({ loaderHeaders, parentHeaders }) => ({
+  ...parentHeaders,
+  ...loaderHeaders,
+  'Cache-Control':
+    'public, max-age=300, s-maxage=1800, stale-while-revalidate=31540000000',
+});
 
 export let loader: LoaderFunction = async ({ request, params }) => {
   let url = new URL(request.url);
@@ -33,6 +46,12 @@ export const meta: MetaFunction = ({ data }) => {
   const defaultMetas = {
     title: data.info.title,
     description: data.info.summary,
+    'twitter:title': data.info.title,
+    'twitter:description': data.info.summary,
+    'twitter:card': 'summary_large_image',
+    'twitter:creator': '@twankrui',
+    'twitter:site': '@twankrui',
+    'twitter:image': data.info.cover_imag,
     'og:title': data.info.title,
     'og:description': data.info.summary,
     'og:type': 'article',
@@ -110,13 +129,15 @@ export default function Post() {
         </div>
 
         {post.info.cover_image && (
-          <div className="w-full h-54 md:h-[32rem] rounded-md overflow-hidden shadow-primary mb-10 md:mb-16">
-            <img
-              src={post.info.cover_image}
-              alt="post image"
-              className="w-full h-full object-cover"
-              width="1076px"
-              height="512px"
+          <div className=" w-full h-54 md:h-[32rem] rounded-md overflow-hidden shadow-primary mb-10 md:mb-16">
+            <BlurredUpImage
+              imgSrc={post.info.cover_image}
+              props={{
+                alt: post.info.title,
+                className: 'h-full w-full object-cover object-center',
+                width: '1076px',
+                height: '512px',
+              }}
             />
           </div>
         )}

@@ -1,3 +1,4 @@
+import { HeadersFunction } from 'remix';
 import { ButtonVariant } from '~/components/Button';
 
 import Newsletter from '~/components/Newsletter';
@@ -6,6 +7,13 @@ import FeaturedList from '~/components/FeaturedList';
 import Card from '~/components/Card';
 
 import { heading, paragraph } from '~/styles/typography';
+
+export const headers: HeadersFunction = ({ loaderHeaders, parentHeaders }) => ({
+  ...parentHeaders,
+  ...loaderHeaders,
+  'Cache-Control':
+    'public, max-age=600, s-maxage=604800, stale-while-revalidate=31540000000',
+});
 
 const featuredProjects = [
   {
