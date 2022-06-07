@@ -74,7 +74,7 @@ export default function Index() {
       <div id="projects" className="container pt-12 md:pt-24 lg:pt-32">
         <FeaturedList
           title="&gt; What I built ⚙"
-          description="Over the past years, I’ve built a lot of awesome front-ends, from landing pages to a full-blown e-learning platform that included games for the student and complex class management interfaces for the teachers."
+          description="Over the past years, I’ve been fortunate to work on the front-ends of some great clients. From MVPs and landing pages, to a full-blown e-learning platform with over a million users."
           listTitle="Featured projects"
           projects={featuredProjects}
         />
@@ -158,7 +158,7 @@ export default function Index() {
 
           <div className="col-span-full md:col-start-9 md:col-span-4 -order-1 md:order-none mb-8 md:mb-0 md:mt-12">
             <img
-              src="/twan.webp"
+              src="/profile.webp"
               alt="it's a me, Twan"
               className="rounded-md shadow-primary"
               width="348px"

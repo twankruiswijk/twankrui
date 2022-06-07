@@ -39,7 +39,7 @@ export default function Navigation() {
             <img
               src="/profile.webp"
               alt="hello, it's me"
-              className="h-12 w-12"
+              className="h-12 w-12 object-cover object-top rounded-full border"
               height="48px"
               width="48px"
             />
