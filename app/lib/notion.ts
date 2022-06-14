@@ -65,10 +65,14 @@ export const getPost = async (slug: string) => {
   const post = await notion.databases.query({
     database_id: databaseId,
     filter: {
-      property: 'Slug',
-      rich_text: {
-        contains: slug,
-      },
+      and: [
+        {
+          property: 'Slug',
+          text: {
+            equals: slug,
+          },
+        },
+      ],
     },
   });
 

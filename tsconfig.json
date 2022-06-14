@@ -5,16 +5,16 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "resolveJsonModule": true,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "target": "ES2019",
+    "strict": true,
     "baseUrl": ".",
-    "noEmit": true,
     "paths": {
       "~/*": ["./app/*"]
     },
-    "allowJs": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "target": "ES2019"
+
+    // Remix takes care of building everything in `remix build`.
+    "noEmit": true
   }
 }
