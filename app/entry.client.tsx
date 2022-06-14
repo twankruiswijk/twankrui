@@ -1,8 +1,8 @@
-import { hydrate } from 'react-dom';
+import { hydrateRoot } from 'react-dom/client';
 import { RemixBrowser } from 'remix';
 import { load } from 'fathom-client';
 
-hydrate(<RemixBrowser />, document);
+hydrateRoot(document, <RemixBrowser />);
 
 if (process.env.NODE_ENV !== 'development') {
   load('EOCGSHWX', {

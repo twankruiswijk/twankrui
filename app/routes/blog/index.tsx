@@ -127,7 +127,7 @@ export default function BlogIndex() {
                   }
                   fixedWidth="md:w-60"
                   handleClick={() =>
-                    fetchMorePosts(`/blog?cursor=${posts.nextCursor}`)
+                    fetchMorePosts(`/blog?index&cursor=${posts.nextCursor}`)
                   }
                   disabled={fetcher.type === 'normalLoad'}
                 />
