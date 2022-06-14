@@ -14,13 +14,13 @@ export default function FeaturedListItem({
 
   return (
     <article className="flex flex-col md:flex-row p-6 border rounded-md border-white/25">
-      <div className="h-8 w-28 md:w-24 shrink-0 mb-3 md:mt-6">
+      <div className="w-28 md:w-24 shrink-0 mb-4 md:mt-6">
         <img
           src={logoUrl}
           alt={title}
           width="112px"
           height="32px"
-          className="object-cover"
+          className="object-contain object-left-top md:object-top max-h-12 md:max-h-14 h-full w-full"
         />
       </div>
 

@@ -23,6 +23,13 @@ const featuredProjects = [
     linkUrl: 'https://senorwooly.com',
   },
   {
+    logoUrl: '/projects/useaffiliates.svg',
+    title: 'useaffiliates.com',
+    description:
+      'In 2018, I thought it was a good idea to create a database of affiliate programs to connect creators and businesses. At the start of this year, I rebuilt the entire site and documented the whole journey, which you can find on my blog.\nJust like the source code for this website, you can find the source code of this project via my Github.',
+    linkUrl: 'https://useaffiliates.com',
+  },
+  {
     logoUrl: '/projects/upupland.webp',
     title: 'upupland.xyz',
     description:
@@ -30,11 +37,11 @@ const featuredProjects = [
     linkUrl: 'https://upupland.xyz',
   },
   {
-    logoUrl: '/projects/duidelijk.webp',
-    title: 'Duidelijk.nu (dutch)',
+    logoUrl: '/projects/rosaspierhuis.svg',
+    title: 'Rosa Spierhuis - Dutch',
     description:
-      "Not everyone needs a web application but does want a home on the internet. If you need a landing page (with or without CMS), I love to help you out! Besides creating something awesome, we'll also focus on how the landing page can help you turn visitors into leads.\nAlready have a design? Let's get to work!",
-    linkUrl: 'https://duidelijk.nu',
+      "Not everyone needs a web application but does want a home on the internet. If you need a new place on the internet (with or without CMS), I love to help you out! Besides creating something awesome, we'll also focus on how the landing page can help you turn visitors into leads.\nLook at this WordPress site I made while working for MOIJ for Rosa Spierhuis. Already have a design? Let's get to work!",
+    linkUrl: 'https://rosaspierhuis.nl',
   },
 ];
 
